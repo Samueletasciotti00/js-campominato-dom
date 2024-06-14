@@ -4,6 +4,23 @@ const container = document.getElementById('grid');
 //Funzione che generi le caselle all'interno del container grid;
 function generaTabella() {
 
+    //Array
+    const bombe = [];
+
+    //genera numeri randomici
+    let j = 1;
+    while(j <= 16) {
+        
+        j++;
+
+        let random = Math.floor(Math.random() * 100);
+        if(!bombe.includes.random){
+            bombe.push(random);
+        }
+    }
+
+
+
     //Reset
     container.innerHTML = '';
 
@@ -21,7 +38,11 @@ function generaTabella() {
         // Aggiungo un event listener per il click a ciascun div
         box.addEventListener('click', () => {
             // Aggiungi una classe aggiuntiva al div cliccato
-            box.classList.toggle('bk-blue');
+            if(bombe.includes(i)){
+                box.classList.add('bomba');
+                box.removeEventListener('click', handleClick);
+                console.log('bomba');
+            }
             
             //Stampa il numero della casella in console
             console.log(i);

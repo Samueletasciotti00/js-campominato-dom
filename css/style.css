@@ -44,7 +44,7 @@ h1{
 
 /* CSS */
 .button-85 {
-    display: block;
+  display: block;
   padding: 0.6em 2em;
   border: none;
   outline: none;
@@ -114,4 +114,8 @@ h1{
 
 .bk-blue{
     background-color: #00ffd5;;
+}
+
+.bomba{
+  background-color: red;
 }
