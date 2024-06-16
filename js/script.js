@@ -1,8 +1,19 @@
 //Creare una variabile contenente il riquadro per le caselle;
 const container = document.getElementById('grid');
 
+//Alert di fine partita
+let avviso = document.querySelector('.stop');
+let stop = document.getElementById('fine');
+let warning = document.getElementById('triangolo');
+let newStop = document.createElement('span');
 //Funzione che generi le caselle all'interno del container grid;
 function generaTabella() {
+
+    //Remove alert
+    
+    newStop.innerHTML = '';
+    avviso.style.display = 'none';
+    
 
     //Array
     const bombe = [];
@@ -19,7 +30,7 @@ function generaTabella() {
         }
     }
 
-
+    const point = [];
 
     //Reset
     container.innerHTML = '';
@@ -34,18 +45,31 @@ function generaTabella() {
 
         //Add number
         box.innerHTML = i;
+        
+        
 
         // Aggiungo un event listener per il click a ciascun div
         box.addEventListener('click', () => {
+
+            point.push(1);
+            
+            //Add Class
+            box.classList.add('bk-blue');
+
             // Aggiungi una classe aggiuntiva al div cliccato
             if(bombe.includes(i)){
                 box.classList.add('bomba');
-                box.removeEventListener('click', handleClick);
                 console.log('bomba');
+
+                //Messaggio termina partita
+                
+                stop.append(newStop);
+                newStop.innerHTML += 'Hai preso una bomba... i tuoi punti sono : ' + (point.length - 1) ;
+                avviso.style.display = 'block';
             }
             
             //Stampa il numero della casella in console
-            console.log(i);
+            //console.log(i);
         });
 
         //Inserisco le caselle nel container
